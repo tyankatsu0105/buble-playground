@@ -1,12 +1,12 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const src  = path.resolve(__dirname, 'src')
-const dist = path.resolve(__dirname, 'dist')
+const src = path.resolve(__dirname, 'src');
+const dist = path.resolve(__dirname, 'dist');
 
 module.exports = {
-  mode: "development",
-  
+  mode: 'development',
+
   entry: src + '/app.jsx',
 
   output: {
@@ -20,6 +20,10 @@ module.exports = {
         test: /\.jsx$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -34,4 +38,4 @@ module.exports = {
       filename: 'index.html'
     })
   ]
-}
+};
